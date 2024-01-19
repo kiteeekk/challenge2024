@@ -32,7 +32,18 @@ export function App() {
         car.model.toLowerCase().includes(inputText.toLowerCase())
       )
       .filter(car => car.year >= inputYear)
-      .sort((car1, car2) => car1.make.localeCompare(car2.make))
+      .sort((car1, car2) => {
+        switch (inputSelect) {
+          case "Year":
+            return car1.year - car2.year;
+          case "Model":
+            return car1.model.localeCompare(car2.model)
+          case "Make":
+            return car1.make.localeCompare(car2.make)
+          default:
+            return car1.make.localeCompare(car2.make)
+        }
+      })
   return (
     <div>
       <input
@@ -45,6 +56,7 @@ export function App() {
       }} />
       <select onChange={event => setInputSelect(event.target.value)}>
         <option>Make</option>
+        <option>Model</option>
         <option>Year</option>
       </select>
       <ol>
