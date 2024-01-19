@@ -14,12 +14,12 @@ function selectColor(car) {
 }
 
 export function App() {
-  const cars = [
-    { make: "Volvo", model: "V70", year: 2012 },
-    { make: "Honda", model: "Accord", year: 2000 },
-    { make: "Ford", model: "Fiesta", year: 2020 },
-    { make: "Volkswagen", model: "Golf", year: 2024 }
-  ]
+  const [cars, setCars] = useState([
+    { id: 1, make: "Volvo", model: "V70", year: 2012 },
+    { id: 2, make: "Honda", model: "Accord", year: 2000 },
+    { id: 3, make: "Ford", model: "Fiesta", year: 2020 },
+    { id: 4, make: "Volkswagen", model: "Golf", year: 2024 }
+  ])
   const [inputText, setInputText] = useState("")
   const [inputYear, setInputYear] = useState("")
   const [inputSelect, setInputSelect] = useState("")
@@ -61,7 +61,12 @@ export function App() {
       </select>
       <ol>
         {filteredCars.map(car =>
-          <li style={{ color: selectColor(car) }}>{car.make} - {car.model} ({car.year})</li>
+          <li key={car.id} style={{ color: selectColor(car) }}>
+            <span>{car.make} - {car.model} ({car.year})</span>
+            <button onClick={() =>
+              setCars(cars.filter(c => c.id !== car.id))
+            }>X</button>
+          </li>
         )}
       </ol>
     </div>
