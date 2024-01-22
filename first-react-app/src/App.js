@@ -1,17 +1,6 @@
 import { useState } from 'react'
+import { Car } from './Car'
 
-function selectColor(car) {
-  switch (car.make) {
-    case "Honda":
-      return "silver"
-    case "Ford":
-      return "blue"
-    case "Volkswagen":
-      return "green"
-    default:
-      return "red"
-  }
-}
 
 export function App() {
   const [cars, setCars] = useState([
@@ -60,14 +49,7 @@ export function App() {
         <option>Year</option>
       </select>
       <ol>
-        {filteredCars.map(car =>
-          <li key={car.id} style={{ color: selectColor(car) }}>
-            <span>{car.make} - {car.model} ({car.year})</span>
-            <button onClick={() =>
-              setCars(cars.filter(c => c.id !== car.id))
-            }>X</button>
-          </li>
-        )}
+        {filteredCars.map(car => <Car car={car} />)}
       </ol>
     </div>
   );
