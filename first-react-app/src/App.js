@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Car } from './Car'
-
+import { CarList } from './CarList'
 
 export function App() {
   const [cars, setCars] = useState([
@@ -48,9 +47,10 @@ export function App() {
         <option>Model</option>
         <option>Year</option>
       </select>
-      <ol>
-        {filteredCars.map(car => <Car car={car} />)}
-      </ol>
+      <CarList
+        cars={filteredCars}
+        onDelete={(id) => { setCars(cars.filter(c => c.id !== id)) }}
+      />
     </div>
   );
 }

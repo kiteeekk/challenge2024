@@ -12,11 +12,12 @@ function selectColor(car) {
 }
 
 export function Car(props) {
-    const car = props.car;
-    return <li key={car.id} style={{ color: selectColor(car) }}>
+    const { car } = props;
+
+    return <li style={{ color: selectColor(car) }}>
         <span>{car.make} - {car.model} ({car.year})</span>
-        <button onClick={() =>
-            ''//setCars(cars.filter(c => c.id !== car.id))
+        <button onClick={() => props.onDelete(car.id)
         }>X</button>
-    </li>
+        { }
+    </li >
 }
