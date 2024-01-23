@@ -50,7 +50,13 @@ export function App() {
       </select>
       <CarList
         cars={filteredCars}
-        onDelete={(id) => { setCars(cars.filter(c => c.id !== id)) }}
+        onDelete={(id) => {
+          fetch("http://localhost:8000/cars/" + id, {
+            method: 'DELETE',
+          }).then(() => {
+            setCars(cars.filter(c => c.id !== id))
+          })
+        }}
       />
     </div>
   );
