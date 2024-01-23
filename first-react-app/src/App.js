@@ -3,10 +3,10 @@ import { CarList } from './CarList'
 
 export function App() {
   const [cars, setCars] = useState([
-    { id: 1, make: "Volvo", model: "V70", year: 2012 },
-    { id: 2, make: "Honda", model: "Accord", year: 2000 },
-    { id: 3, make: "Ford", model: "Fiesta", year: 2020 },
-    { id: 4, make: "Volkswagen", model: "Golf", year: 2024 }
+    { id: 1, make: "Volvo", model: "V70", year: 2012, imgUrl: 'https://picsum.photos/147/112' },
+    { id: 2, make: "Honda", model: "Accord", year: 2000, imgUrl: 'https://picsum.photos/147/112' },
+    { id: 3, make: "Ford", model: "Fiesta", year: 2020, imgUrl: 'https://picsum.photos/147/112' },
+    { id: 4, make: "Volkswagen", model: "Golf", year: 2024, imgUrl: 'https://picsum.photos/147/112' }
   ])
   const [inputText, setInputText] = useState("")
   const [inputYear, setInputYear] = useState("")

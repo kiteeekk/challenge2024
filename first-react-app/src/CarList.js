@@ -2,10 +2,12 @@
 import { Car } from './Car'
 import styled from 'styled-components'
 
-const List = styled.ol`
-    margin: 20px;
-    border: 1px solid black;
-    padding: 30px;
+const List = styled.div`
+    padding: 2em;
+    background-color: #ededed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 `
 
 export function CarList(props) {
