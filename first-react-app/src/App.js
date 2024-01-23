@@ -1,17 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CarList } from './CarList'
 
 export function App() {
-  const [cars, setCars] = useState([
-    { id: 1, make: "Volvo", model: "V70", year: 2012, imgUrl: 'https://picsum.photos/147/112' },
-    { id: 2, make: "Honda", model: "Accord", year: 2000, imgUrl: 'https://picsum.photos/147/112' },
-    { id: 3, make: "Ford", model: "Fiesta", year: 2020, imgUrl: 'https://picsum.photos/147/112' },
-    { id: 4, make: "Volkswagen", model: "Golf", year: 2024, imgUrl: 'https://picsum.photos/147/112' }
-  ])
+  const [cars, setCars] = useState([])
   const [inputText, setInputText] = useState("")
   const [inputYear, setInputYear] = useState("")
   const [inputSelect, setInputSelect] = useState("")
   console.log({ inputText, inputYear, inputSelect })
+
+  useEffect(() => {
+    fetch("http://localhost:8000/cars")
+      .then(result => result.json())
+      .then(data => setCars(data))
+  }, [])
 
   const filteredCars =
     cars
