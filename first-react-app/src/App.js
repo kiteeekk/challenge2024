@@ -6,12 +6,14 @@ export function App() {
   const [inputText, setInputText] = useState("")
   const [inputYear, setInputYear] = useState("")
   const [inputSelect, setInputSelect] = useState("")
+  const [error, setError] = useState()
   console.log({ inputText, inputYear, inputSelect })
 
   useEffect(() => {
     fetch("http://localhost:8000/cars")
       .then(result => result.json())
       .then(data => setCars(data))
+      .catch(error => setError(error.message))
   }, [])
 
   const filteredCars =
@@ -48,6 +50,7 @@ export function App() {
         <option>Model</option>
         <option>Year</option>
       </select>
+      {error && <div>{error}</div>}
       <CarList
         cars={filteredCars}
         onDelete={(id) => {
