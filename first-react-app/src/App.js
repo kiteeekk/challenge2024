@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from "react-router-dom";
 import { CarList } from './CarList'
 
 export function App() {
@@ -37,6 +38,7 @@ export function App() {
       })
   return (
     <div>
+      <Link to="/create">ADD NEW</Link>
       <input
         type={"text"} placeholder='Search' onChange={event => {
           setInputText(event.target.value)
