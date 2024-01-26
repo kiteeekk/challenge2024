@@ -1,32 +1,44 @@
 {
-    "cars": [
-        {
-            "id": 1,
-            "make": "Volvo",
-            "model": "V70",
-            "year": 2012,
-            "imgUrl": "https://picsum.photos/147/112"
-        },
-        {
-            "id": 2,
-            "make": "Honda",
-            "model": "Accord",
-            "year": 2000,
-            "imgUrl": "https://picsum.photos/147/112"
-        },
-        {
-            "id": 3,
-            "make": "Ford",
-            "model": "Fiesta",
-            "year": 2020,
-            "imgUrl": "https://picsum.photos/147/112"
-        },
-        {
-            "id": 4,
-            "make": "Volkswagen",
-            "model": "Golf",
-            "year": 2024,
-            "imgUrl": "https://picsum.photos/147/112"
-        }
-    ]
+  "cars": [
+    {
+      "id": "1",
+      "make": "Volvo",
+      "model": "V70",
+      "year": 2012,
+      "imgUrl": "https://picsum.photos/147/112"
+    },
+    {
+      "id": "2",
+      "make": "Honda",
+      "model": "Accord",
+      "year": 2000,
+      "imgUrl": "https://picsum.photos/147/112"
+    },
+    {
+      "id": "3",
+      "make": "Ford",
+      "model": "Fiesta",
+      "year": 2020,
+      "imgUrl": "https://picsum.photos/147/112"
+    },
+    {
+      "id": "4",
+      "make": "Volkswagen",
+      "model": "Golf",
+      "year": 2024,
+      "imgUrl": "https://picsum.photos/147/112"
+    },
+    {
+      "id": "d59b",
+      "make": "Toyota",
+      "model": "Corolla",
+      "year": "1980"
+    },
+    {
+      "id": "812f",
+      "make": "Toyota",
+      "model": "Corolla",
+      "year": "1980"
+    }
+  ]
 }

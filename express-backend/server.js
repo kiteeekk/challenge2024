@@ -1,5 +1,6 @@
 const express = require('express')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const { getAllCars, getCarById, addCar, deleteById } = require('./db');
 
 const app = express()
 app.use(bodyParser.json())
@@ -12,36 +13,23 @@ app.use((req, res, next) => {
     next();
 });
 
-let nextCarIndex = 2;
-const db = [
-    {
-        "id": "1",
-        "make": "Volvo",
-        "model": "V70",
-        "year": 2012,
-        "imgUrl": "https://picsum.photos/147/112"
-    }
-]
-
-app.get('/cars', function (req, res) {
-    res.send(db)
+app.get('/cars', async function (req, res) {
+    const cars = await getAllCars()
+    res.send(cars)
 })
 
-app.get('/cars/:id', function (req, res) {
-    const foundCar = db.find(car => car.id === req.params.id)
+app.get('/cars/:id', async function (req, res) {
+    const foundCar = await getCarById(req.params.id)
     res.send(foundCar)
 })
 
-app.post('/cars', function (req, res) {
-    const newCar = req.body;
-    newCar.id = `${nextCarIndex++}`
-    db.push(newCar)
+app.post('/cars', async function (req, res) {
+    const newCar = await addCar(req.body);
     res.send(newCar)
 })
 
-app.delete('/cars/:id', function (req, res) {
-    const index = db.findIndex(car => car.id === req.params.id);
-    db.splice(index, 1)
+app.delete('/cars/:id', async function (req, res) {
+    await deleteById(req.params.id)
     res.send()
 })
 
