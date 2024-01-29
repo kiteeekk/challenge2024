@@ -1,8 +1,29 @@
 version: "3.8"
 services:
+  frontend:
+    image: node:latest
+    working_dir: /usr/app
+    volumes:
+      - ./first-react-app:/usr/app
+    command: "npm start"
+    ports:
+      - 3000:3000
+  backend:
+    image: node:latest
+    working_dir: /usr/app
+    environment:
+      POSTGRES_HOST: db
+    volumes:
+      - ./express-backend:/usr/app
+    command: "npm start"
+    ports:
+      - 8000:8000
   db:
     image: postgres:16
     environment:
+      POSTGRES_DB: challenge
       POSTGRES_PASSWORD: salasana
     ports:
       - 5432:5432
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
