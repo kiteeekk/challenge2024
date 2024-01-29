@@ -19,7 +19,7 @@ export function AddCar() {
             model: model,
             year: year
         }
-        fetch("http://localhost:8000/cars", {
+        fetch("/cars/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

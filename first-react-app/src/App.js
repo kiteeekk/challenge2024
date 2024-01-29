@@ -11,7 +11,7 @@ export function App() {
   console.log({ inputText, inputYear, inputSelect })
 
   useEffect(() => {
-    fetch("http://localhost:8000/cars")
+    fetch("/cars/")
       .then(result => result.json())
       .then(data => setCars(data))
       .catch(error => setError(error.message))
@@ -56,7 +56,7 @@ export function App() {
       <CarList
         cars={filteredCars}
         onDelete={(id) => {
-          fetch("http://localhost:8000/cars/" + id, {
+          fetch("/cars/" + id, {
             method: 'DELETE',
           }).then(() => {
             setCars(cars.filter(c => c.id !== id))

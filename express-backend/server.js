@@ -6,12 +6,12 @@ const app = express()
 app.use(bodyParser.json())
 
 // DO NOT TRY THIS AT HOME
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-    next();
-});
+//app.use((req, res, next) => {
+//    res.header("Access-Control-Allow-Origin", "*");
+//    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+//    next();
+//});
 
 app.get('/cars', async function (req, res) {
     const cars = await getAllCars()
